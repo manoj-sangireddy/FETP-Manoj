@@ -12,8 +12,8 @@ my_app=Flask(__name__)
 my_app.secret_key="supersecretkey"
 
 blueprint=make_google_blueprint(
-    client_id="30605272550-ri42dhi5m2eccgfhais6hramt6lfiomo.apps.googleusercontent.com",
-    client_secret="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",
+    client_id="GOOGLE_CLIENT_ID",
+    client_secret="GOOGLE_CLIENT_SECRET",
     scope=["profile", "email"],
     redirect_to="google_login",
     redirect_url="https://127.0.0.1:5000/login/google"
