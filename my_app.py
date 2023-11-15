@@ -16,7 +16,7 @@ blueprint=make_google_blueprint(
     client_secret="YOUR_GOOGLE_CLIENT_SECRET",
     scope=["profile", "email"],
     redirect_to="google_login",
-    redirect_url="/login/google"
+    redirect_url="http://localhost:5000/google"
 )
 my_app.register_blueprint(blueprint, url_prefix="/login")
 
