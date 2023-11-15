@@ -13,19 +13,21 @@ if __name__=='__main__':
 from flask import Flask, redirect, url_for
 from flask_dance.contrib.google import make_google_blueprint, google
 
-app=Flask(__name__)
-app.secret_key="supersecretkey"
+my_app=Flask(__name__)
+my_app.secret_key="supersecretkey"
 
 blueprint=make_google_blueprint(
-    client_id="",
-    client_secret="",
+    client_id="YOUR_GOOGLE_CLIENT_ID",
+    client_secret="YOUR_GOOGLE_CLIENT_SECRET",
     scope=["profile", "email"],
     redirect_to="google_login",
     redirect_url="/login/google"
 )
-app.register_blueprint(blueprint, url_prefix="/login")
+my_app.register_blueprint(blueprint, url_prefix="/login")
+
 @my_app.route("/")
 def index():
     return redirect(url_for("google.login"))
+
 if __name__=="__main__":
-    app.run(debug=True)
+    my_app.run(debug=True)
